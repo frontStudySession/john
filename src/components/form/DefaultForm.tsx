@@ -1,3 +1,4 @@
+import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styled from "styled-components";
 
@@ -86,11 +87,19 @@ function DefaultForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FormData>();
 
   const success: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+    console.log("submit!", data);
+  };
+
+  const sanitizeNumericInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value.replace(/[^0-9]/g, "");
+    const sanitizedValue = inputValue.substring(0, 11);
+
+    setValue("mobileNumber", sanitizedValue);
   };
 
   return (
@@ -135,14 +144,7 @@ function DefaultForm() {
               value: 11,
               message: "11자리를 입력해주세요!",
             },
-            maxLength: {
-              value: 11,
-              message: "11자리를 입력해주세요!",
-            },
-            pattern: {
-              value: /^[0-9]*$/,
-              message: "숫자만 입력해주세요!",
-            },
+            onChange: sanitizeNumericInput,
           })}
           placeholder="Mobile number"
         ></InputField>
