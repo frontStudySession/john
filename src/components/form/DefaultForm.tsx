@@ -86,7 +86,6 @@ function DefaultForm() {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm<FormData>();
 
