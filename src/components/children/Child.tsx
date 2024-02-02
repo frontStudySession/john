@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { useState } from "react";
+import styled from 'styled-components';
+import { useState } from 'react';
 
 const Wrapper = styled.div`
   margin-top: 10px;

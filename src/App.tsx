@@ -1,7 +1,7 @@
-import React from "react";
-import "./App.css";
-import { Hello } from "@app/hello";
-import DefaultForm from "@components/form/DefaultForm";
+import React from 'react';
+import './App.css';
+import { Hello } from '@app/hello';
+import DefaultForm from '@components/form/DefaultForm';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
-import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import styled from "styled-components";
+import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import styled from 'styled-components';
 
 interface FormData {
   firstName: string;
@@ -96,10 +96,10 @@ function DefaultForm() {
   };
 
   const sanitizeNumericInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value.replace(/[^0-9]/g, "");
+    const inputValue = e.target.value.replace(/[^0-9]/g, '');
     const sanitizedValue = inputValue.substring(0, 11);
 
-    setValue("mobileNumber", sanitizedValue);
+    setValue('mobileNumber', sanitizedValue);
   };
 
   return (
@@ -107,8 +107,8 @@ function DefaultForm() {
       <Title>존</Title>
       <LabelField>
         <InputField
-          {...register("firstName", {
-            required: "필수 입력 사항입니다!",
+          {...register('firstName', {
+            required: '필수 입력 사항입니다!',
           })}
           placeholder="First name"
         ></InputField>
@@ -116,8 +116,8 @@ function DefaultForm() {
       </LabelField>
       <LabelField>
         <InputField
-          {...register("lastName", {
-            required: "필수 입력 사항입니다!",
+          {...register('lastName', {
+            required: '필수 입력 사항입니다!',
           })}
           placeholder="Last name"
         ></InputField>
@@ -125,11 +125,11 @@ function DefaultForm() {
       </LabelField>
       <LabelField>
         <InputField
-          {...register("email", {
-            required: "필수 입력 사항입니다!",
+          {...register('email', {
+            required: '필수 입력 사항입니다!',
             pattern: {
               value: /^\S+@\S+$/i,
-              message: "올바르지 않은 이메일 형식입니다!",
+              message: '올바르지 않은 이메일 형식입니다!',
             },
           })}
           placeholder="Email"
@@ -138,32 +138,28 @@ function DefaultForm() {
       </LabelField>
       <LabelField>
         <InputField
-          {...register("mobileNumber", {
-            required: "필수 입력 사항입니다!",
+          {...register('mobileNumber', {
+            required: '필수 입력 사항입니다!',
             minLength: {
               value: 11,
-              message: "11자리를 입력해주세요!",
+              message: '11자리를 입력해주세요!',
             },
             maxLength: {
               value: 11,
-              message: "11자리를 입력해주세요!",
+              message: '11자리를 입력해주세요!',
             },
             pattern: {
               value: /^[0-9]*$/,
-              message: "숫자만 입력해주세요!",
+              message: '숫자만 입력해주세요!',
             },
             onChange: sanitizeNumericInput,
           })}
           placeholder="Mobile number"
         ></InputField>
-        {errors.mobileNumber && (
-          <ValidText>{errors.mobileNumber.message}</ValidText>
-        )}
+        {errors.mobileNumber && <ValidText>{errors.mobileNumber.message}</ValidText>}
       </LabelField>
       <LabelField>
-        <SelectField
-          {...register("title", { required: "필수 입력 사항입니다!" })}
-        >
+        <SelectField {...register('title', { required: '필수 입력 사항입니다!' })}>
           <option value="">Select...</option>
           <option value="Mr">Mr</option>
           <option value="Mrs">Mrs</option>
@@ -176,7 +172,7 @@ function DefaultForm() {
         <label>
           Yes&nbsp;
           <input
-            {...register("developer", { required: "필수 입력 사항입니다!" })}
+            {...register('developer', { required: '필수 입력 사항입니다!' })}
             type="radio"
             value="Yes"
           />
@@ -184,7 +180,7 @@ function DefaultForm() {
         <label>
           No&nbsp;
           <input
-            {...register("developer", { required: "필수 선택 사항입니다!" })}
+            {...register('developer', { required: '필수 선택 사항입니다!' })}
             type="radio"
             value="No"
           />
