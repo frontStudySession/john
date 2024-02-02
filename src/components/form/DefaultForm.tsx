@@ -92,7 +92,7 @@ function DefaultForm() {
   } = useForm<FormData>();
 
   const success: SubmitHandler<FormData> = (data) => {
-    console.log("submit!", data);
+    alert(JSON.stringify(data));
   };
 
   const sanitizeNumericInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -143,6 +143,14 @@ function DefaultForm() {
             minLength: {
               value: 11,
               message: "11자리를 입력해주세요!",
+            },
+            maxLength: {
+              value: 11,
+              message: "11자리를 입력해주세요!",
+            },
+            pattern: {
+              value: /^[0-9]*$/,
+              message: "숫자만 입력해주세요!",
             },
             onChange: sanitizeNumericInput,
           })}
