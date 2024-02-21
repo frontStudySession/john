@@ -56,11 +56,14 @@ const LabelField = styled.label`
   text-align: start;
 `;
 
-const InputField = styled.input`
+const InputField = styled.input.attrs((props) => ({
+  style: {
+    padding: props.type === 'file' ? '0' : '8px 12px',
+  },
+}))`
   display: block;
   width: 100%;
   border-radius: 4px;
-  padding: ${(props) => (props.type === 'file' ? '0' : '8px 12px')};
   font-size: 1.2rem;
   box-sizing: border-box;
 `;
