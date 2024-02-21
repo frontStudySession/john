@@ -1,2 +1,4 @@
 /config
 /scripts
+.eslintrc.js
+.prettierrc.js
