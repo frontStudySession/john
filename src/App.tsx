@@ -4,6 +4,7 @@ import Home from '@pages/Home';
 import About from '@pages/About';
 import Login from '@pages/Login';
 import SignUp from '@pages/SignUp';
+import NotFound from '@pages/NotFound';
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
         <Route
           path="/signup"
           element={<SignUp />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
     </NavigationProvider>

@@ -38,17 +38,11 @@ export const NavigationProvider = ({ children }: any) => {
 
 export const Routes = ({ children, className }: any) => {
   const { location } = useNavigation();
+  const childrenArray = React.Children.toArray(children);
+  const defaultChild = childrenArray.find((child: any) => child.props.path === '*') || null;
+  const matchedChild = childrenArray.find((child: any) => child.props.path === location);
 
-  return (
-    <div className={className}>
-      {React.Children.map(children, (child) => {
-        if (child.props.path === location) {
-          return child;
-        }
-        return null;
-      })}
-    </div>
-  );
+  return <div className={className}>{matchedChild || defaultChild}</div>;
 };
 
 export const Route = ({ element }: any) => {
